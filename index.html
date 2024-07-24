@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/goit-js-hw-12/favicon.svg" />
@@ -8,11 +7,10 @@
   <title>Vanilla App Template</title>
   
   <script type="module" crossorigin src="/goit-js-hw-12/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-8c59ed88.js">
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-c493984e.js">
   <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-1cd1f9d9.css">
-  <link rel="stylesheet" href="/goit-js-hw-12/assets/index-8f873b7f.css">
+  <link rel="stylesheet" href="/goit-js-hw-12/assets/index-03a42e92.css">
 </head>
-
 <body>
   <header class="header">
   <nav class="nav">
@@ -28,56 +26,20 @@
       <button class="btn" type="submit">Search</button>
     </form>
   </section>
+  
   <section>
     <ul class="gallery"></ul>
   </section>
 
-<section class="search">
-  <form id="search-form">
-    <label for="search-query"></label>
- 
-    <button class="btn" type="submit">Load more</button>
-  </form>
-</section>
-<section>
-  <ul class="gallery"></ul>
-</section>
+  <section class="search">
+    <button class="btn hidden" id="load-more" type="submit">Load More</button>
+  </section>
 
   <div class="container">
     <span class="loader hidden"></span>
   </div>
-  <!-- Loads the specified .html file -->
   
 
   
 </body>
-
 </html>
-<!-- 
-<li class="gallery-item">
-  <a class="gallery-link" href="large-image.jpg">
-    <img class="gallery-image" src="small-image.jpg" alt="Image descripti2 on" />
-  </a>
-</li> -->
-
-
-
-<!-- const items = images.map(image => {
-const li = document.createElement("li");
-li.classList.add("gallery-item");
-
-const a = document.createElement("a");
-a.classList.add("gallery-link");
-a.href = image.original;
-
-const link = document.createElement("img");
-link.classList.add("gallery-image");
-link.src = image.preview;
-
-link.alt = image.description;
-
-a.appendChild(link);
-li.appendChild(a);
-
-return li;
-}); -->
