@@ -4,6 +4,7 @@
   | default @import url()
   |============================
 */
+
 @import url('./reset.css');
 @import url('./vite-promo.css');
 @import url('./header.css');
@@ -22,4 +23,166 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+section {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+button[type="submit"] {
+
+  width: 91px;
+  height: 37px;
+
+  margin-top: 10px;
+  background-color: #4E75FF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.input {
+
+  width: 272px;
+  height: 34px;
+  font-size: 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  color: #808080;
+}
+
+.gallery {
+  max-width: 1440px;
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 24px;
+
+  margin-left: auto;
+
+  margin-right: auto;
+
+
+}
+
+img {
+  display: block;
+  width: 360px;
+  height: 200px;
+
+}
+
+.search {
+
+  margin-bottom: 32px;
+}
+
+.image-info {
+  background: FFFFFF;
+  color: 2E2F42;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 14px;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 5px;
+}
+
+.image-info span {
+  font-weight: #2E2F42;
+}
+
+.info {
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-items: center;
+
+}
+
+.gallery-item {
+  border: 2px solid #808080;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #FFF #FFF transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  display: none;
+  /* Ukryty domyślnie */
+}
+
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #FF3D00 #FF3D00;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+
+.loader::before {
+  width: 32px;
+  height: 32px;
+  border-color: #FFF #FFF transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto 0;
+  /* 32px przerwy u góry, auto wyśrodkowanie w poziomie */
+  height: 100px;
+  /* Wysokość kontenera */
 }
