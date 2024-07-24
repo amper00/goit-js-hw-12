@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -8,7 +7,6 @@
   <title>Vanilla App Template</title>
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
-
 <body>
   <load="partials/header.html" />
 
@@ -19,56 +17,20 @@
       <button class="btn" type="submit">Search</button>
     </form>
   </section>
+  
   <section>
     <ul class="gallery"></ul>
   </section>
 
-<section class="search">
-  <form id="search-form">
-    <label for="search-query"></label>
- 
-    <button class="btn" type="submit">Load more</button>
-  </form>
-</section>
-<section>
-  <ul class="gallery"></ul>
-</section>
+  <section class="search">
+    <button class="btn hidden" id="load-more" type="submit">Load More</button>
+  </section>
 
   <div class="container">
     <span class="loader hidden"></span>
   </div>
-  <!-- Loads the specified .html file -->
   <load="partials/vite-promo.html" />
 
   <script type="module" src="./main.js"></script>
 </body>
-
 </html>
-<!-- 
-<li class="gallery-item">
-  <a class="gallery-link" href="large-image.jpg">
-    <img class="gallery-image" src="small-image.jpg" alt="Image descripti2 on" />
-  </a>
-</li> -->
-
-
-
-<!-- const items = images.map(image => {
-const li = document.createElement("li");
-li.classList.add("gallery-item");
-
-const a = document.createElement("a");
-a.classList.add("gallery-link");
-a.href = image.original;
-
-const link = document.createElement("img");
-link.classList.add("gallery-image");
-link.src = image.preview;
-
-link.alt = image.description;
-
-a.appendChild(link);
-li.appendChild(a);
-
-return li;
-}); -->

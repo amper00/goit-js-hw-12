@@ -186,3 +186,11 @@ img {
   height: 100px;
   /* Wysokość kontenera */
 }
+.hidden{
+
+  display: none;
+
+}
+.loaderr{
+  display: block;
+}
