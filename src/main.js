@@ -8,6 +8,8 @@ import axios from 'axios';
 let page = 1;
 const perPage = 40;
 let currentQuery = '';
+let totalHits = 0;
+let totalPages = 0;
 
 document.getElementById('search-form').addEventListener('submit', async event => {
     event.preventDefault();
@@ -15,6 +17,8 @@ document.getElementById('search-form').addEventListener('submit', async event =>
     if (query !== currentQuery) {
         currentQuery = query;
         page = 1;
+        totalHits = 0;
+        totalPages = 0;
         document.querySelector('.gallery').innerHTML = ''; 
         hideLoadMoreButton(); 
     }
@@ -41,6 +45,9 @@ async function fetchImages(query) {
         loader.classList.add('hidden');
         loader.style.display = 'none';
 
+        totalHits = response.data.totalHits;
+        totalPages = Math.ceil(totalHits / perPage);
+
         if (response.data.hits.length === 0 && page === 1) {
             iziToast.error({
                 title: 'Error',
@@ -48,8 +55,20 @@ async function fetchImages(query) {
             });
         } else {
             displayImages(response.data.hits);
-            page++; // Increment page for the next request
-            showLoadMoreButton(); // Show Load More button if there are more results
+            page++; 
+            if (page > totalPages) {
+                iziToast.error({
+                    position: "topRight",
+                    message: "We're sorry, there are no more posts to load"
+                });
+                hideLoadMoreButton();
+            } else {
+              
+                showLoadMoreButton(); 
+                   scrollPage();
+                
+
+            }
         }
     } catch (error) {
         loader.classList.add('hidden');
@@ -105,7 +124,6 @@ function displayImages(images) {
         captionDelay: 250
     });
 
-    
     if (items.length > 0) {
         showLoadMoreButton();
     }
@@ -119,4 +137,16 @@ function showLoadMoreButton() {
 function hideLoadMoreButton() {
     const loadMoreButton = document.getElementById('load-more');
     loadMoreButton.classList.add('hidden');
+}
+function scrollPage() {
+    
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    if (galleryItems.length > 0) {
+        const firstItemHeight = galleryItems[0].getBoundingClientRect().height;
+     
+        window.scrollBy({
+            top: 2 * firstItemHeight,
+            behavior: 'smooth'
+        });
+    }
 }
